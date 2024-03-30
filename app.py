@@ -54,7 +54,7 @@ def inserting():
 
 # Query all of the data from the database and return the information in a table
 @app.route('/db_select')
-def inserting():
+def selecting():
     conn = psycopg2.connect("postgres://lab10db_5bt0_user:tudWW9fgv87ywhuPtDWBk9n1v29NtLrs@dpg-co48tckf7o1s738q1bj0-a/lab10db_5bt0")
     cur = conn.cursor()
     
@@ -72,3 +72,16 @@ def inserting():
         output += "</tr>"
     output += "</table>"
     return output
+
+# Drop table from database
+@app.route('/db_drop')
+def dropping():
+    conn = psycopg2.connect("postgres://lab10db_5bt0_user:tudWW9fgv87ywhuPtDWBk9n1v29NtLrs@dpg-co48tckf7o1s738q1bj0-a/lab10db_5bt0")
+    cur = conn.cursor()
+    
+    cur.execute('''
+        DROP TABLE Basketball;
+        ''')
+    conn.commit()
+    conn.close()
+    return "Basketball Table Successfully Dropped"
