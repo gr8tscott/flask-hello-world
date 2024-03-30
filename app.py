@@ -1,8 +1,12 @@
+# Forked and Editted by: Matthew Scott
+# Purpose: test, create, edit and view a database and its tables
+# Usage: visit base url of 'https://lab10-cspb3308.onrender.com/' to get started then go through the routes one at a time as they appear on this page.
+
 import psycopg2
 from flask import Flask
 app = Flask(__name__)
 
-# https://lab10-cspb3308.onrender.com/db_test
+# https://lab10-cspb3308.onrender.com/
 
 @app.route('/')
 def hello_world():
